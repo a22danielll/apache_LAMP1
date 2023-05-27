@@ -18,7 +18,8 @@ services:
       - ./prestashop:/app/prestashop
       - ./apache/wordpress.conf:/etc/apache2/sites-enabled/wordpress.conf
       - ./wordpress:/app/wordpress
-      
+      - ./apache/server.key:/etc/ssl/private/server.key
+      - ./apache/server.pem:/etc/ssl/certs/server.pem      
 
 #  db:
 #    image: mysql 
