@@ -9,6 +9,7 @@ services:
   #    - ./drupal:/var/www/html
   #    - .php/drupal.conf:/
   web: 
+    build: apache
     ports:
       - 80:80
       - 443:443
