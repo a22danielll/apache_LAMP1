@@ -9,4 +9,4 @@ EXPOSE 443
 RUN a2enmod ssl
 RUN a2enmod rewrite
 
-CMD apachectl -D FOREGROUND
+CMD chmod 777 /app/* && apachectl -D FOREGROUND
