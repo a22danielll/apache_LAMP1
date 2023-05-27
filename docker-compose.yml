@@ -21,25 +21,25 @@ services:
       - ./apache/server.key:/etc/ssl/private/server.key
       - ./apache/server.pem:/etc/ssl/certs/server.pem      
 
-#  db:
-#    image: mysql 
-#    restart: always
-#    environment:
-#      MYSQL_ROOT_PASSWORD: abc123.
-#      MYSQL_DATABASE: presta
-#      MYSQL_USER: prestauser
-#      MYSQL_PASSWORD: abc123.
-#    volumes:
-#      - basedatos:/var/lib/mysql
+  db:
+    image: mysql 
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: abc123.
+      MYSQL_DATABASE: presta
+      MYSQL_USER: prestauser
+      MYSQL_PASSWORD: abc123.
+    volumes:
+      - basedatos:/var/lib/mysql
     
-#  phpmyadmin:
-#    image: phpmyadmin
-#    restart: always
-#    ports:
-#      - 8080:80
-#    environment:
-#      - PMA_ARBITRARY=1
-#  
-#volumes:
-#  basedatos:
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+  
+volumes:
+  basedatos:
      
