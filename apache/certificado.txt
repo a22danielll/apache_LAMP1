@@ -1,0 +1,3 @@
+sudo docker run -it --rm --name certbot -v "/home/ubuntu/letsencrypt:/etc/letsencrypt" -p
+
+80:80 certbot/certbot certonly --standalone -d prestashop.webtest.dedyn.io -d drupal.webtest.dedyn.io -d wordpress.webtest.dedyn.io
