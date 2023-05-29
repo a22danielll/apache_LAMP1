@@ -6,8 +6,8 @@ services:
       - 8000:80
       - 8443:443
     volumes:
-      #- ./drupal:/var/www/html
-      - ./drupal-10.0.2:/app/drupal
+      - ./drupal:/var/www/html
+      #- ./drupal-10.0.2:/app/drupal
       #- ./php/drupal.conf:/
   #web: 
   #  build: apache
