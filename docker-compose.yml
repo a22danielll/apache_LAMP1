@@ -1,25 +1,25 @@
 version: "3"
 services:
-  #php:
-  #  build: php
+  php:
+    build: php
+    ports:
+      - 8000:80
+      - 8443:443
+    volumes:
+      - ./drupal:/var/www/html
+      #- ./php/drupal.conf:/
+  #web: 
+  #  build: apache
   #  ports:
   #    - 80:80
-  #    - 443:443
+  #   - 443:443
   #  volumes:
-  #    - ./drupal:/var/www/html
-  #    - .php/drupal.conf:/
-  web: 
-    build: apache
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./apache/prestashop.conf:/etc/apache2/sites-enabled/prestashop.conf
-      - ./prestashop:/app/prestashop
-      - ./apache/wordpress.conf:/etc/apache2/sites-enabled/wordpress.conf
-      - ./wordpress:/app/wordpress
-      - ./apache/server.key:/etc/ssl/private/server.key
-      - ./apache/server.pem:/etc/ssl/certs/server.pem      
+  #    - ./apache/prestashop.conf:/etc/apache2/sites-enabled/prestashop.conf
+  #    - ./prestashop:/app/prestashop
+  #    - ./apache/wordpress.conf:/etc/apache2/sites-enabled/wordpress.conf
+  #    - ./wordpress:/app/wordpress
+  #    - ./apache/server.key:/etc/ssl/private/server.key
+  #    - ./apache/server.pem:/etc/ssl/certs/server.pem      
 
   db:
     image: mysql 
