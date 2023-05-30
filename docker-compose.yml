@@ -7,7 +7,7 @@ services:
       - 8443:443
     volumes:
       - ./drupal:/var/www/html
-      - ./apache/drupal.conf:/etc/apache2/sites-enabled/drupal.conf
+     # - ./apache/drupal.conf:/etc/apache2/sites-enabled/drupal.conf
   #web: 
   #  build: apache
   #  ports:
