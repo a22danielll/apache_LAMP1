@@ -3,8 +3,8 @@ FROM php:8.2-rc-apache
 RUN apt-get update && apt-get install -y \
         libzip-dev \
         libxml2-dev \
-        libcurl4-openssl-dev \
-        php5-gd
-RUN docker-php-ext-install zip xml curl
+        libcurl4-openssl-dev 
+        
+RUN docker-php-ext-install zip xml curl 
 EXPOSE 80
 EXPOSE 443
