@@ -6,22 +6,24 @@ services:
       - 8000:80
       - 8443:443
     volumes:
-      - ./drupal:/app/html
-     # - ./apache/drupal.conf:/etc/apache2/sites-enabled/drupal.conf
+      - ./drupal:/app/drupal
+      - ./apache/drupal.conf:/etc/apache2/sites-enabled/drupal.conf
+      - ./apache/server.key:/etc/ssl/private/server.key
+      - ./apache/server.pem:/etc/ssl/certs/server.pem
   
-  #web: 
-  #  build: apache
-  #  ports:
-  #    - 80:80
-  #   - 443:443
-  #  volumes:
-  #    - ./apache/prestashop.conf:/etc/apache2/sites-enabled/prestashop.conf
-  #    - ./prestashop:/app/prestashop
-  #    - ./apache/wordpress.conf:/etc/apache2/sites-enabled/wordpress.conf
-  #    - ./wordpress:/app/wordpress
-  #    - ./apache/server.key:/etc/ssl/private/server.key
-  #    - ./apache/server.pem:/etc/ssl/certs/server.pem      
-#
+  web: 
+    build: apache
+    ports:
+      - 80:80
+     - 443:443
+    volumes:
+      - ./apache/prestashop.conf:/etc/apache2/sites-enabled/prestashop.conf
+      - ./prestashop:/app/prestashop
+      - ./apache/wordpress.conf:/etc/apache2/sites-enabled/wordpress.conf
+      - ./wordpress:/app/wordpress
+      - ./apache/server.key:/etc/ssl/private/server.key
+      - ./apache/server.pem:/etc/ssl/certs/server.pem      
+
   db:
     image: mysql 
     restart: always
@@ -32,6 +34,7 @@ services:
       MYSQL_PASSWORD: abc123.
     volumes:
       - basedatos:/var/lib/mysql
+      #- ./prestashop.sql:/docker-entrypoint-intdb.d/prestashop.sql
     
   phpmyadmin:
     image: phpmyadmin
